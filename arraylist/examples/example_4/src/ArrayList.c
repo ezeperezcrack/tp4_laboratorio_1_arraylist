@@ -209,13 +209,8 @@ int al_remove(ArrayList* pList,int index)
     int returnAux = -1,i;
     if(pList!=NULL&& (index>=0 && index<pList->size))
     {
-        for(i=index;i<al_len(pList);i++)
-        {
-            pList->pElements[i]= pList->pElements[i+1];
-
-        }
-    pList->size--;
-    returnAux=0;
+        contract(pList,index);
+        returnAux=0;
     }
 
     return returnAux;
